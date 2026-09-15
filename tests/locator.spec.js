@@ -13,7 +13,7 @@ const submitMessage=page.locator(".my-2")
 await expect(submitMessage).not.toBeVisible()
 await page.getByRole("button",{name:"Submit form"}).click()  //getByRole is used for buttons, links, checkboxes, radio buttons, etc
 
-const message =await submitMessage.textContent()
+const message =await submitMessage.textContent()  // to fetch the text inside the locator
 console.log(message)
 await expect(submitMessage).toBeVisible()  //to check if the message is visible in the locator
 await expect(submitMessage).toHaveText(message)  //to check if the message is visible in the locator and has the same text as the message variable

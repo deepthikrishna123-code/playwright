@@ -10,5 +10,3 @@ test("prompt",async({page})=>{
     })
     await page.locator(".btn.btn-danger").click()
 })
-
-//task date picker

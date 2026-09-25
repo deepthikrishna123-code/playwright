@@ -33,8 +33,22 @@ test("datepicker",async({page})=>{
     //await page.getByText(targetYear.toString(),{excat:true}).click()
     await page.locator("span.year").filter({hasText:targetYear.toString()}).click()
     await page.locator(".month").nth(targetMonth-1).click()
+    await page.locator(".day").filter({hasText:targetDate.toString()}).click()
+    await page.locator("#button-one").click()
+    const dateMsg=await page.locator("#message-one").textContent()
+    console.log(dateMsg)
+    const inputLocator=page.locator(".form-control.datepicker")
+    await inputLocator.click()
+    //await expect(inputLocator).toHaveText(dateMsg)
+    const inputDate=await inputLocator.inputValue()
+   console.log("input date is:", inputDate)
 
 
+    
     await page.waitForTimeout(3000)
 
 })
+
+
+
+

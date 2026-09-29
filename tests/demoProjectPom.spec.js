@@ -1,13 +1,12 @@
 import {test,expect} from "@playwright/test"
+import { LoginPage } from "../pages/LoginPage"
 test("demoProject",async({page})=>{
-    await page.goto("https://www.saucedemo.com/")
-    const username=page.getByPlaceholder("Username")
-    await username.fill("standard_user")
-    const password=page.locator("#password")
-    await password.fill("secret_sauce")
-    const login=page.getByRole("button",{name:"Login"})
-    await login.click()
-    await page.waitForLoadState("networkidle")  //for wait the page to load
+    
+    const loginpage=new LoginPage(page)     //constructor for LoginPage
+    await loginpage.navigatePage()
+    await loginpage.loginUser()
+    
+    
     const productName=page.locator(".inventory_item_name")
     const productCount=await productName.count()
     console.log(productCount)
@@ -56,3 +55,5 @@ test("demoProject",async({page})=>{
 
     await page.waitForTimeout(3000)
 })
+
+//product page,cart page, checkout page,final page

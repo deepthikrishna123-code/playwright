@@ -1,0 +1,24 @@
+[{
+    "uname":"standard_user",
+    "pwd":"secret_sauce",
+    "myProduct":"Sauce Labs Backpack",
+    "firstName":"Deepthi",
+    "lastName":"Krishna",
+    "zipCode":"121212"
+},
+{
+    "uname":"standard_user",
+    "pwd":"secret_sauce",
+    "myProduct":"Sauce Labs Bolt T-Shirt",
+    "firstName":"Manu",
+    "lastName":"Kumar",
+    "zipCode":"102456"
+},
+{
+    "uname":"standard_user",
+    "pwd":"secret_sauce",
+    "myProduct":"Sauce Labs Onesie",
+    "firstName":"Ann",
+    "lastName":"Siby",
+    "zipCode":"102456"
+}]

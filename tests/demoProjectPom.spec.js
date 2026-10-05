@@ -1,9 +1,12 @@
 import {test,expect} from "@playwright/test"
-
 import { ObjectManager } from "../pages/ObjectManger.js"
+import data from "../utiles/data.json"
+//const testData=JSON.parse(JSON.stringify(data))  //stringyfy to convert json to string, parse to convert string to js
 
-test("demoProject",async({page})=>{
-    
+ for(const testData of data)
+ {
+test(`demoProject ${testData.myProduct}`,async({page})=>{
+ 
     const pom=new ObjectManager(page) 
     const loginpage=await pom.getLoginPage() 
     const productpage=await pom.getProductPage()
@@ -12,24 +15,17 @@ test("demoProject",async({page})=>{
     const finishPage=await pom.getFinishPage()
 
     await loginpage.navigatePage()
-    const uname="standard_user"
-    const pwd="secret_sauce"
-    await loginpage.loginUser(uname,pwd)
+    await loginpage.loginUser(testData.uname,testData.pwd)
 
     
-    const myProduct="Sauce Labs Backpack"
-    await productpage.product(myProduct)
+    
+    await productpage.product(testData.myProduct)
     await productpage.navigateCart()
 
-
-    
-    await cartpage.cart(myProduct)
-    
-
-    
-    await checkoutpage.navigateCheckout("Deepthi","Krishna","121212")
-    
-    
+    await cartpage.cart(testData.myProduct)
+   
+    await checkoutpage.navigateCheckout(testData.firstName,testData.lastName,testData.zipCode)
+   
     await finishPage.finish()
     
 
@@ -45,5 +41,6 @@ test("demoProject",async({page})=>{
 
     await page.waitForTimeout(3000)
 })
+}
 
 //product page,cart page, checkout page,final page

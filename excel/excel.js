@@ -1,0 +1,87 @@
+//import {Exceljs} from 'exceljs';
+const Exceljs=require ('exceljs'); //first import exceljs
+
+
+async function writeExcelTest(searchValue,replacedValue,filePath) { //pass the text for search
+
+
+
+ const workbook=new Exceljs.Workbook();
+
+ 
+ await workbook.xlsx.readFile(filePath)
+  
+
+    
+
+  const worksheet=workbook.getWorksheet('Sheet1');
+
+  const output=await readExcel(worksheet,searchValue);//first runwithout await then put
+
+  // if (output.row === -1) {
+  //   console.log( `"${searchValue}" not found.`);
+  //   return;
+  // }
+   
+
+    //const cell=worksheet.getCell(output.row,output.column+change.colChange); //insted of hardcode we use the object variables ,use change as last
+    const cell=worksheet.getCell(output.row,output.column)
+    
+   cell.value=replacedValue 
+   
+   
+   await workbook.xlsx.writeFile(filePath);//re-write the file and save it again
+
+
+
+
+    
+}
+
+async  function readExcel(worksheet,searchValue) //worksheet want to read so passthat as argmnt
+{
+    
+ let output={row:-1,column:-1} //move it here we used here
+
+  
+  worksheet.eachRow((row,rowNumber)=>{
+ 
+    //inner for loop to iterate cell
+
+    //eachCell Method itreate over all non-null cells in a row
+
+    row.eachCell((cell,colNumber)=>{
+
+
+        
+      
+
+     if(cell.value===searchValue)
+       // if (cell.value && cell.value.toString().trim().toLowerCase() === searchValue.toString().trim().toLowerCase())
+
+      {
+        
+        
+
+        output.row=rowNumber; //update the row number using object
+        output.column=colNumber; //update the column number using object
+
+        console.log(cell.value)
+        console.log(output.row); 
+         console.log(output.column);
+        
+      }
+    })
+
+  })
+
+  return output; //first run without this the explain now it return actuall col and row we use it on getcell so readExcel method asign to output
+}
+
+//call the function at the end
+//first do this only
+//writeExcelTest("maruthii","Hundai","C:/Document/VechicalBook.xlsx"); //pass searchText replacedValue and filepath as argmnt
+//seccond do this for change any coresponding column valum we pass an object
+
+//writeExcelTest('Tata Nexon',340000,{rowChange:0,colChange:1},"C:/Document/VechicalBook.xlsx") //and also pass this parameters as chane in writeExcelTest()
+writeExcelTest('Maria','Ramu',"C:\\Deepthi\\Software Testing- Obsqura\\test_File.xlsx")

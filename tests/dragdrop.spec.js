@@ -1,5 +1,5 @@
 import test from "@playwright/test"
-test("dragdrop",async({page})=>{
+test("dragdrop @tag @web",async({page})=>{
     await page.goto("https://selenium.qabible.in/drag-drop.php")
     const targetLocation=page.getByText("Draggable n°1")
     const destination=page.locator("#mydropzone")

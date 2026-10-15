@@ -3,12 +3,17 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  
   "scripts": {
-    "test":"npx playwright test",
-    "headed":"npx playwright test --headed",
-    "config":"npx playwright test --config=playwright.config1.js",
-    "projects":"npx playwright test --config=playwright.config1.js --project=chromeProject",
-    "debug":"npx playwright test --debug"
+    "test": "npx playwright test",
+    "headed": "npx playwright test --headed",
+    "config": "npx playwright test --config=playwright.config1.js",
+    "projects": "npx playwright test --config=playwright.config1.js --project=chromeProject",
+    "debug": "npx playwright test --debug",
+    "UImode": "npx playwright test --ui",
+    "webtag": "npx playwright test --grep @web",
+    "webortag": "npx playwright test --grep @web|@tag",
+    "webandtag": "npx playwright test --grep '(?=.*@web)(?=.*@tag)'"
   },
   "keywords": [],
   "author": "",
@@ -17,5 +22,8 @@
   "devDependencies": {
     "@playwright/test": "^1.62.1",
     "@types/node": "^26.4.1"
+  },
+  "dependencies": {
+    "exceljs": "^4.4.0"
   }
 }

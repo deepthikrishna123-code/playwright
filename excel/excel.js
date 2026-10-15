@@ -2,7 +2,7 @@
 const Exceljs=require ('exceljs'); //first import exceljs
 
 
-async function writeExcelTest(searchValue,replacedValue,filePath) { //pass the text for search
+async function writeExcelTest(searchValue,replacedValue,change,filePath) { //pass the text for search
 
 
 
@@ -25,7 +25,7 @@ async function writeExcelTest(searchValue,replacedValue,filePath) { //pass the t
    
 
     //const cell=worksheet.getCell(output.row,output.column+change.colChange); //insted of hardcode we use the object variables ,use change as last
-    const cell=worksheet.getCell(output.row,output.column)
+    const cell=worksheet.getCell(output.row,output.column+change.colChange)
     
    cell.value=replacedValue 
    
@@ -84,4 +84,4 @@ async  function readExcel(worksheet,searchValue) //worksheet want to read so pas
 //seccond do this for change any coresponding column valum we pass an object
 
 //writeExcelTest('Tata Nexon',340000,{rowChange:0,colChange:1},"C:/Document/VechicalBook.xlsx") //and also pass this parameters as chane in writeExcelTest()
-writeExcelTest('Maria','Ramu',"C:\\Deepthi\\Software Testing- Obsqura\\test_File.xlsx")
+writeExcelTest(75,'B',{rowChange:0,colChange:1},"C:\\Deepthi\\Software Testing- Obsqura\\test_File.xlsx")

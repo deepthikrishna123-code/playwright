@@ -21,6 +21,7 @@ export default defineConfig({
   },
   
   reporter:'html',
+  fullyParallel:true, //to run the tests in parallel for the browser automatically
   
   projects:[{
     name: 'chromeProject',
@@ -29,8 +30,12 @@ export default defineConfig({
    headless:false, 
    screenshot:'only-on-failure',
    video:'retain-on-failure',
-   trace:'retain-on-failure'
-    },
+   trace:'retain-on-failure',
+   //viewport:{width:500,height:500},
+   permissions:['geolocation','camera','microphones','notifications'],  //to allow permissions for the browser automatically
+   geolocation:{latitude: 12.9716, longitude: 77.5946}, //to set the geolocation for the browser automatically 
+   ignoreHTTPSErrors:true //to ignore the https errors for the browser automatically
+  },
   },
   {
     name: 'firefoxProject',
@@ -49,7 +54,8 @@ export default defineConfig({
    headless:false, 
    screenshot:'only-on-failure',
    video:'retain-on-failure',
-   trace:'retain-on-failure'
+   trace:'retain-on-failure',
+   //...devices['iPhone 17 Pro Max']
     },
   },
   ],

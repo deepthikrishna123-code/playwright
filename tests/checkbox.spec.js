@@ -1,10 +1,11 @@
 import test, { expect } from '@playwright/test'
-test("chekbox",async({page})=>{
+test("chekbox @tag",async({page})=>{
     await page.goto("https://selenium.qabible.in/check-box-demo.php")
     const inputForm=page.getByRole("link",{name:"Input Form"})
     await inputForm.click()
     const checkBoxDemo=page.getByRole("link",{name:"Checkbox Demo"})
     await checkBoxDemo.click()
+    //await page.pause() //to pause the execution of the test
     const SingleCheckBox=page.getByRole("checkbox",{name:"Click on this check box"})
     await SingleCheckBox.check()
     

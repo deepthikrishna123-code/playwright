@@ -22,10 +22,21 @@ test("form submit",async({page})=>{
     await page.goto("https://selenium.qabible.in/form-submit.php")
     const firstName=page.locator("#validationCustom01")
     const lastName=page.locator("#validationCustom02")
-    await firstName.keyboard.type("Deepthi")
-    await page.keyboard.press("Control+a")
-    await page.keyboard.press("Control+c")
-    await lastName.keyboard.press("Control+v")
+    
+    //await page.keyboard.type("Deepthi")
+    await firstName.pressSequentially("Deepthi")
+    await firstName.click()
+    await page.keyboard.press("Control+A")
+    await page.keyboard.press("Control+C")
+    await lastName.click()
+    await page.keyboard.press("Control+V")
 
+     const inputForm=page.getByRole("link",{name:"Input Form"})
+     await inputForm.hover()
+     const colorHover=await inputForm.evaluate((el)=>{
+      return window.getComputedStyle(el).color
+      
+     })
+     console.log(colorHover)
 
 })

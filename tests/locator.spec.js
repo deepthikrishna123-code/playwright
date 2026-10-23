@@ -1,5 +1,5 @@
 import {test,expect} from "@playwright/test"
-test.only("locators",async({page})=>{
+test("locators",async({page})=>{
     await page.goto("https://selenium.qabible.in/form-submit.php")
     await page.locator("#validationCustom01").fill("Deepthi")  //located & filled the value
     //await page.pause() //pause the execution of the test

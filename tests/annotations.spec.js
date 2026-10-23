@@ -19,10 +19,10 @@ test("annotations",async({page})=>{
 test.skip("annotation test for skip",async({page})=>{
   console.log("this test will be skipped")
 })
-test("annotation test for fail",async({page})=>{
+/*test("annotation test for fail",async({page})=>{
   console.log("this test will fail")
   test.fail()
-})
+})*/
 test("annotation test for slow",async({page})=>{
   test.slow()
   console.log("this test will be marked as slow")

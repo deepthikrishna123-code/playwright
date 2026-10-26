@@ -20,7 +20,7 @@ export default defineConfig({
   timeout: 60 *1000
   },
   
-  reporter:'html',
+  reporter:[['html'],['allure-playwright']],
   use: {
    headless:false, 
    screenshot:'only-on-failure',

@@ -1,0 +1,5 @@
+
+    Success - Check box is checked
+
+true
+Radio button 'Female' is checked

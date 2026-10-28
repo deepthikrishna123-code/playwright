@@ -12,7 +12,9 @@
     "UImode": "npx playwright test --ui",
     "webtag": "npx playwright test --grep @web",
     "webortag": "npx playwright test --grep @web|@tag",
-    "webandtag": "npx playwright test --grep '(?=.*@web)(?=.*@tag)'"
+    "webandtag": "npx playwright test --grep '(?=.*@web)(?=.*@tag)'",
+    "rmdir": "rmdir /s /q allure-results",
+    "allure": "npx allure  generate allure-results --clean  -o allure-report && npx allure serve allure-results"
   },
   "keywords": [],
   "author": "",

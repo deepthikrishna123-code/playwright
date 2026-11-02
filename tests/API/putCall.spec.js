@@ -11,8 +11,8 @@ test("putcall",async({request})=>{
     },
     "additionalneeds" : "Breakfast"
 }
-const updateResponse=await request.put("https://restful-booker.herokuapp.com/booking/:id",
-    {header:{"Content-Type": "application/json","Accept": "application/json","Cookie": "token=abc123"},data:updateData})
+const updateResponse=await request.put("https://restful-booker.herokuapp.com/booking/3607",
+    {header:{"Content-Type": "application/json","Accept": "application/json","Cookie": "token=d85d837e32e5dc0"},data:updateData})
     console.log(updateResponse)
     const updatejson=await updateResponse.json()
     console.log(updatejson)

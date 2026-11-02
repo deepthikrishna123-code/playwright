@@ -28,4 +28,6 @@ const bookResponse=await request.post("https://restful-booker.herokuapp.com/book
 console.log(bookResponse)
 const bookingjson=await bookResponse.json()
 console.log(bookingjson)
+expect(bookingjson.booking.firstname).toBe(bookingData.firstname)
+expect(bookingjson.booking.bookingdates.checkin).toBe(bookingData.bookingdates.checkin)
 })
